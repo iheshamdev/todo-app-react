@@ -1,0 +1,19 @@
+.todos_container {
+  width: 600px;
+  max-width: 90%;
+  margin: 50px auto;
+  padding: 30px 0;
+  border-radius: 6px;
+  background-color: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  ul {
+    margin-top: 20px;
+    list-style-type: none;
+  }
+  p {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 17px;
+    color: #453456;
+  }
+}

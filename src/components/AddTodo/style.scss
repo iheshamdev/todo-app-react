@@ -1,0 +1,32 @@
+.addTodo {
+  padding: 0 10px;
+  margin: 0 20px;
+  border: 2px solid #f3f2f3;
+  border-radius: 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.2s ease-out;
+  &:focus-within {
+    border: 2px solid var(--pColor);
+  }
+  input[type='text'] {
+    height: 50px;
+    font-size: 16px;
+    width: 100%;
+  }
+  button {
+    width: 100px;
+    height: 40px;
+    background-color: var(--pColor);
+    color: white;
+    border-radius: 2px;
+    font-weight: 500;
+    font-size: 18px;
+    cursor: pointer;
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+}
