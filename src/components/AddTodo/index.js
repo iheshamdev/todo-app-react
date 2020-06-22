@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import './style.scss';
-import { todoAdded } from '../../store/todos';
+import { ADD_BUG } from '../../store/todos';
 
 const AddTodo = () => {
   const [newTodo, setNewTodo] = useState('');
@@ -9,7 +9,7 @@ const AddTodo = () => {
 
   const onSubmit = e => {
     e.preventDefault();
-    dispatch(todoAdded({ text: newTodo }));
+    dispatch(ADD_BUG(newTodo));
     setNewTodo('');
   };
 

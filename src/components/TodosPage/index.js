@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './style.scss';
-import { useSelector } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import AddTodo from '../AddTodo';
 import TodoItem from '../TodoItem';
+import { LOAD_TODOS } from '../../store/todos';
 
-const TodosPage = () => {
-  const todos = useSelector(state => state.todos);
+const TodosPage = props => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(LOAD_TODOS());
+  }, [dispatch]);
+
   return (
     <section className="todos_container">
       <AddTodo />
-      {todos.length > 0 ? (
+      {props.todos.loading && <span>Loading...</span>}
+      {props.todos.list.length > 0 ? (
         <ul>
-          {todos.map(todo => (
+          {props.todos.list.map(todo => (
             <TodoItem todo={todo} key={todo.id} />
           ))}
         </ul>
@@ -22,4 +29,9 @@ const TodosPage = () => {
   );
 };
 
-export default TodosPage;
+const mapStateToProps = state => {
+  return {
+    todos: state.todos,
+  };
+};
+export default connect(mapStateToProps)(TodosPage);
